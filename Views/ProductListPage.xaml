@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:SaveUp.ViewModels"
+             xmlns:models="clr-namespace:SaveUp.Models"
+             x:Class="SaveUp.Views.ProductListPage"
+             x:DataType="viewModels:ProductListViewModel"
+             Title="ProductListPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <ListView ItemsSource="{Binding Products}" HasUnevenRows="True">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Nr" WidthRequest="50"/>
+                        <Label Text="Produkt" WidthRequest="100"/>
+                        <Label Text="Beschreibung" WidthRequest="150"/>
+                        <Label Text="Preis (CHF)" WidthRequest="100"/>
+                        <Label Text="Kategorie" WidthRequest="100"/>
+                        <Label Text="Datum/Uhrzeit" WidthRequest="150"/>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:ProductModel">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Id}" WidthRequest="50"/>
+                                <Label Text="{Binding ProductName}" WidthRequest="100"/>
+                                <Label Text="{Binding Description}" WidthRequest="150"/>
+                                <Label Text="{Binding Price}" WidthRequest="100"/>
+                                <Label Text="{Binding Category}" WidthRequest="100"/>
+                                <Label Text="{Binding DateTimeAdded}" WidthRequest="150"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Alles Löschen" Command="{Binding DeleteAllCommand}" HorizontalOptions="Center" VerticalOptions="Start"/>
+            <Label Text="{Binding TotalSavings, StringFormat='Sparbetrag Total: CHF {0:F2}'}" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

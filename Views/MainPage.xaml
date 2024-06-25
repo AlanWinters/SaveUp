@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
+             x:Class="SaveUp.MainPage"
+             Title="Home">
+    <VerticalStackLayout>
+        
+        <ScrollView>
+            <VerticalStackLayout
+                Padding="30,0"
+                Spacing="25">
+
+                 <!--Titelbild--> 
+                <Image Source="saveup_logo.jpg" 
+                       HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="Start"/>
+
+                <Label Text="Willkommen bei SaveUp!"
+                       Style="{StaticResource Headline}"/>
+
+                <Label Text="Hier sparst du klug und lebst dafür gut."
+                       Style="{StaticResource SubHeadline}"
+                       SemanticProperties.HeadingLevel="Level2"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

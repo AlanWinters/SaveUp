@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:SaveUp.ViewModels"
+             HideSoftInputOnTapped="True"
+             x:Class="SaveUp.Views.AddProductPage"
+             Title="AddProductPage">
+    <StackLayout Padding="10">
+        <Label Text="Produkt" />
+        <Entry Text="{Binding ProductName}" />
+
+        <Label Text="Beschreibung" />
+        <Entry Text="{Binding Description}" />
+
+        <Label Text="Kategorie" />
+        <Picker ItemsSource="{Binding Categories}"
+                SelectedItem="{Binding Category}" />
+        
+        <Label Text="Preis (CHF)" />
+        <Entry Text="{Binding Price}" Keyboard="Numeric" />
+
+        <Label Text="Datum / Uhrzeit" />
+        <Entry Text="{Binding DateTimeAdded, StringFormat='{0:dd.MM.yyyy, hh:mm}'}" IsReadOnly="True" />
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Speichern" Command="{Binding SaveCommand}" />
+            <Button Text="Zurücksetzen" Command="{Binding ResetCommand}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
